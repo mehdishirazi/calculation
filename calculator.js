@@ -7,20 +7,21 @@ function NumberHandler(e){
         }
         else if(e.currentTarget.value === "="){
                 secondNumber = document.getElementById('result').value;
-                if(clickBtn === "+"){
-                  debugger
-                    alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
-                }
-                else if(clickBtn === "-"){
-                    alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
-                }
+                     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
+                           if(clickBtn === "+"){
+                                 alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
+                           }
+                           else if(clickBtn === "-"){
+                                 alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
+                           }
         }
 }
 
 
 function Calculator(){
     firstNumber = document.getElementById('result').value; 
-        document.getElementById('result').value = null;
+        firstNumber = firstNumber.substring(0, firstNumber.length - 1);
+               document.getElementById('result').value = null;
 }
 
 
