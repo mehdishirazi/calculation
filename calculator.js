@@ -8,6 +8,7 @@ function NumberHandler(e){
         else if(e.currentTarget.value === "="){
                 secondNumber = document.getElementById('result').value;
                      secondNumber = secondNumber.substring(0, secondNumber.length - 1);
+                        document.getElementById('result').value = null;
                            if(clickBtn === "+"){
                                  alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
                            }
