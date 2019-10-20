@@ -1,6 +1,12 @@
 function NumberHandler(e){
     document.getElementById('result').value += e.currentTarget.value;
+  debugger
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-"){
+        if(clickBtn == "+" || clickBtn == "-"){
+            clickBtn = e.currentTarget.value;
+            Multicalculation();
+            return;
+        }
         clickBtn = e.currentTarget.value; 
         Calculator();
     }
@@ -10,19 +16,33 @@ function NumberHandler(e){
         document.getElementById('result').value = null;
         if(clickBtn === "+"){
             alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
+            clickBtn = null;
         }
         else if(clickBtn === "-"){
             alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
+            clickBtn = null;
         }
     }
 }
-
 
 
 function Calculator(){
     firstNumber = document.getElementById('result').value; 
     firstNumber = firstNumber.substring(0, firstNumber.length - 1);       
     document.getElementById('result').value = null;
+}
+
+
+function Multicalculation(){
+  debugger
+    if(clickBtn == "+"){
+        firstNumber = parseInt(firstNumber)+parseInt(document.getElementById('result').value);
+        document.getElementById('result').value = null;
+    }
+    else{
+        firstNumber = parseInt(firstNumber)-parseInt(document.getElementById('result').value.substring(0, document.getElementById('result').value.length -1));
+        document.getElementById('result').value = null;
+    }
 }
 
 
