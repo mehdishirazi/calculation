@@ -1,28 +1,28 @@
 function NumberHandler(e){
     document.getElementById('result').value += e.currentTarget.value;
-  debugger
-        if(e.currentTarget.value === "+" || e.currentTarget.value === "-"){
-            clickBtn = e.currentTarget.value; 
-            Calculator();
+    if(e.currentTarget.value === "+" || e.currentTarget.value === "-"){
+        clickBtn = e.currentTarget.value; 
+        Calculator();
+    }
+    else if(e.currentTarget.value === "="){
+        secondNumber = document.getElementById('result').value;
+        secondNumber = secondNumber.substring(0, secondNumber.length - 1);
+        document.getElementById('result').value = null;
+        if(clickBtn === "+"){
+            alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
         }
-        else if(e.currentTarget.value === "="){
-                secondNumber = document.getElementById('result').value;
-                     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
-                          document.getElementById('result').value = null;
-                                if(clickBtn === "+"){
-                                      alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
-                                }
-                                else if(clickBtn === "-"){
-                                      alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
-                                }
+        else if(clickBtn === "-"){
+            alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
         }
+    }
 }
+
 
 
 function Calculator(){
     firstNumber = document.getElementById('result').value; 
-        firstNumber = firstNumber.substring(0, firstNumber.length - 1);
-               document.getElementById('result').value = null;
+    firstNumber = firstNumber.substring(0, firstNumber.length - 1);       
+    document.getElementById('result').value = null;
 }
 
 
