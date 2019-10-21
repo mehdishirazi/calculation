@@ -1,48 +1,37 @@
 function NumberHandler(e){
     document.getElementById('result').value += e.currentTarget.value;
-  debugger
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-"){
-        if(clickBtn == "+" || clickBtn == "-"){
-            clickBtn = e.currentTarget.value;
-            Multicalculation();
-            return;
-        }
-        clickBtn = e.currentTarget.value; 
-        Calculator();
+        Multicalculation();
+        clickBtn = e.currentTarget.value;
     }
     else if(e.currentTarget.value === "="){
         secondNumber = document.getElementById('result').value;
         secondNumber = secondNumber.substring(0, secondNumber.length - 1);
         document.getElementById('result').value = null;
         if(clickBtn === "+"){
-            alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber)+parseInt(secondNumber)))
+            alert(`${firstNumber}` + "+" + `${secondNumber}` + "=" + (parseInt(firstNumber) + parseInt(secondNumber)))
             clickBtn = null;
         }
         else if(clickBtn === "-"){
-            alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber)-parseInt(secondNumber))) 
+            alert(`${firstNumber}` + "-" + `${secondNumber}` + "=" + (parseInt(firstNumber) - parseInt(secondNumber))) 
             clickBtn = null;
         }
     }
-}
-
-
-function Calculator(){
-    firstNumber = document.getElementById('result').value; 
-    firstNumber = firstNumber.substring(0, firstNumber.length - 1);       
-    document.getElementById('result').value = null;
 }
 
 
 function Multicalculation(){
-  debugger
-    if(clickBtn == "+"){
-        firstNumber = parseInt(firstNumber)+parseInt(document.getElementById('result').value);
-        document.getElementById('result').value = null;
-    }
-    else{
-        firstNumber = parseInt(firstNumber)-parseInt(document.getElementById('result').value.substring(0, document.getElementById('result').value.length -1));
-        document.getElementById('result').value = null;
-    }
+    result = document.getElementById('result').value
+    if(firstNumber == null)
+      firstNumber = document.getElementById('result').value;
+
+    else if(clickBtn == "+")
+        firstNumber = parseInt(firstNumber) + parseInt(result);
+    
+    else
+        firstNumber = parseInt(firstNumber) - parseInt(result.substring(0, result.length -1));
+    
+    document.getElementById('result').value = null;
 }
 
 
@@ -60,7 +49,7 @@ let btnsum = document.getElementById('btnSumption');
 let btnmin = document.getElementById('btnMines');
 let btnequl = document.getElementById('btnEqual');
 let firstNumber = null;
-let secondNumber = null;
+let secondNumber = 0;
 let clickBtn = null;
 
 
