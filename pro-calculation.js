@@ -1,7 +1,7 @@
 function NumberHandler(e){
   debugger
     document.getElementById('result').value += e.currentTarget.value;
-    if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.current.value === "\/"){
+    if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.currentTarget.value === "\/"){
         Multicalculation();
         oparator.push(e.currentTarget.value);
         clickBtn = e.currentTarget.value;
@@ -17,6 +17,20 @@ function Multicalculation(){
     oparator.push(firstNumber);
     document.getElementById('result').value = null;
     firstNumber = null;
+}
+
+
+function Equalbuttonpressing(){
+    if(e.currentTarget.value === '='){
+        if(oparator.indexOf('*') === true){
+            multi = oparator.indexOf('*');
+            prione = multi - 1;
+            pritwo = multi + 1;
+        }
+    }
+
+
+
 }
 
 
