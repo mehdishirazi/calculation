@@ -1,4 +1,5 @@
 function NumberHandler(e){
+  debugger
     document.getElementById('result').value += e.currentTarget.value;
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.current.value === "\/"){
         Multicalculation();
@@ -32,6 +33,8 @@ let btn0 = document.getElementById('btnNumber0');
 let btnsum = document.getElementById('btnSumption');
 let btnmin = document.getElementById('btnMines');
 let btnequl = document.getElementById('btnEqual');
+let btnmulti = document.getElementById('btnMulti');
+let btndivider = document.getElementById('btnDivider');
 let firstNumber = null;
 let secondNumber = 0;
 let clickBtn = null;
@@ -51,4 +54,6 @@ btn0.onclick = NumberHandler;
 btnsum.onclick = NumberHandler;
 btnmin.onclick = NumberHandler;
 btnequl.onclick = NumberHandler;
+btnmulti.onclick = NumberHandler;
+btndivider.onclick = NumberHandler;
 
