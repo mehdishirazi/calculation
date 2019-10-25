@@ -32,6 +32,7 @@ function Equalbuttonpressing(){
     clickBtn = oparator.toString();
     clickBtn = clickBtn.replace(/[,]/g, "");
     result = eval(clickBtn);
+    oparator = [];
     document.getElementById('result').value = null;
     alert(result);
 }
