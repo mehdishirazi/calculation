@@ -1,5 +1,4 @@
 function NumberHandler(e){
-  debugger
     document.getElementById('result').value += e.currentTarget.value;
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.currentTarget.value === "\/"){
         Multicalculation();
