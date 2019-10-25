@@ -29,16 +29,11 @@ function Equalbuttonpressing(){
     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
     oparator.push(secondNumber);
     secondNumber = null;
-    if(parseFloat(oparator.indexOf('*') || parseFloat(oparator.indexOf('\/'))) == '-1'){
-        clickBtn = oparator.toString();
-        clickBtn = clickBtn.replace(/[,]/g, "");
-        result = eval(clickBtn);
-        alert(result);
-    }
-    else
-    multi = oparator.indexOf('*');
-    prione = multi - 1;
-    pritwo = multi + 1;
+    clickBtn = oparator.toString();
+    clickBtn = clickBtn.replace(/[,]/g, "");
+    result = eval(clickBtn);
+    document.getElementById('result').value = null;
+    alert(result);
 }
 
 
