@@ -4,15 +4,19 @@ function NumberHandler(e){
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.currentTarget.value === "\/"){
         Multicalculation();
         oparator.push(e.currentTarget.value);
-        clickBtn = e.currentTarget.value;
     }
+    else if(e.currentTarget.value === "="){
+        Equalbuttonpressing();
+    }
+    else
+        return;
 }
 
 
 function Multicalculation(){
     result = document.getElementById('result').value
     if(firstNumber == null){
-        firstNumber = result.substring(0, result.length -1); 
+        firstNumber = result.substring(0, result.length - 1); 
     }
     oparator.push(firstNumber);
     document.getElementById('result').value = null;
@@ -21,16 +25,20 @@ function Multicalculation(){
 
 
 function Equalbuttonpressing(){
-    if(e.currentTarget.value === '='){
-        if(oparator.indexOf('*') === true){
-            multi = oparator.indexOf('*');
-            prione = multi - 1;
-            pritwo = multi + 1;
-        }
+    secondNumber = document.getElementById('result').value;
+    secondNumber = secondNumber.substring(0, secondNumber.length - 1);
+    oparator.push(secondNumber);
+    secondNumber = null;
+    if(parseFloat(oparator.indexOf('*') || parseFloat(oparator.indexOf('\/'))) == '-1'){
+        clickBtn = oparator.toString();
+        clickBtn = clickBtn.replace(/[,]/g, "");
+        result = eval(clickBtn);
+        alert(result);
     }
-
-
-
+    else
+    multi = oparator.indexOf('*');
+    prione = multi - 1;
+    pritwo = multi + 1;
 }
 
 
