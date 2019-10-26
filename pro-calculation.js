@@ -1,18 +1,18 @@
 function NumberHandler(e){
     document.getElementById('result').value += e.currentTarget.value;
     if(e.currentTarget.value === "+" || e.currentTarget.value === "-" || e.currentTarget.value === "*" || e.currentTarget.value === "\/"){
-        Multicalculation();
+        MultiCalculation();
         oparator.push(e.currentTarget.value);
     }
     else if(e.currentTarget.value === "="){
-        Equalbuttonpressing();
+        EqualButtonPressing();
     }
     else
         return;
 }
 
 
-function Multicalculation(){
+function MultiCalculation(){
     result = document.getElementById('result').value
     if(firstNumber == null){
         firstNumber = result.substring(0, result.length - 1); 
@@ -23,7 +23,7 @@ function Multicalculation(){
 }
 
 
-function Equalbuttonpressing(){
+function EqualButtonPressing(){
     secondNumber = document.getElementById('result').value;
     secondNumber = secondNumber.substring(0, secondNumber.length - 1);
     oparator.push(secondNumber);
@@ -31,9 +31,25 @@ function Equalbuttonpressing(){
     clickBtn = oparator.toString();
     clickBtn = clickBtn.replace(/[,]/g, "");
     result = eval(clickBtn);
-    oparator = [];
     document.getElementById('result').value = null;
+    oparator = [];
     alert(result);
+}
+
+
+function ShowingData(){
+    showEleman = oparator.toString();
+    showEleman = showEleman.replace(/[,]/g, "");
+    document.getElementById('conclud').innerHTML = showEleman;
+}
+
+
+function composer(callback){
+    return function(){
+      debugger
+    callback(event);
+    ShowingData();
+    }
 }
 
 
@@ -58,19 +74,19 @@ let clickBtn = null;
 let oparator = []
 
 
-btn1.onclick = NumberHandler;
-btn2.onclick = NumberHandler;
-btn3.onclick = NumberHandler;
-btn4.onclick = NumberHandler;
-btn5.onclick = NumberHandler;
-btn6.onclick = NumberHandler;
-btn7.onclick = NumberHandler;
-btn8.onclick = NumberHandler;
-btn9.onclick = NumberHandler;
-btn0.onclick = NumberHandler;
-btnsum.onclick = NumberHandler;
-btnmin.onclick = NumberHandler;
-btnequl.onclick = NumberHandler;
-btnmulti.onclick = NumberHandler;
-btndivider.onclick = NumberHandler;
+btn1.onclick = composer(NumberHandler);
+btn2.onclick = composer(NumberHandler);
+btn3.onclick = composer(NumberHandler);
+btn4.onclick = composer(NumberHandler);
+btn5.onclick = composer(NumberHandler);
+btn6.onclick = composer(NumberHandler);
+btn7.onclick = composer(NumberHandler);
+btn8.onclick = composer(NumberHandler);
+btn9.onclick = composer(NumberHandler);
+btn0.onclick = composer(NumberHandler);
+btnsum.onclick = composer(NumberHandler);
+btnmin.onclick = composer(NumberHandler);
+btnequl.onmousedown = composer(NumberHandler);
+btnmulti.onclick = composer(NumberHandler);
+btndivider.onclick = composer(NumberHandler);
 
