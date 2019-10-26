@@ -44,9 +44,8 @@ function ShowingData(){
 }
 
 
-function composer(callback){
+function Composer(callback){
     return function(){
-      debugger
     callback(event);
     ShowingData();
     }
@@ -74,19 +73,19 @@ let clickBtn = null;
 let oparator = []
 
 
-btn1.onclick = composer(NumberHandler);
-btn2.onclick = composer(NumberHandler);
-btn3.onclick = composer(NumberHandler);
-btn4.onclick = composer(NumberHandler);
-btn5.onclick = composer(NumberHandler);
-btn6.onclick = composer(NumberHandler);
-btn7.onclick = composer(NumberHandler);
-btn8.onclick = composer(NumberHandler);
-btn9.onclick = composer(NumberHandler);
-btn0.onclick = composer(NumberHandler);
-btnsum.onclick = composer(NumberHandler);
-btnmin.onclick = composer(NumberHandler);
-btnequl.onmousedown = composer(NumberHandler);
-btnmulti.onclick = composer(NumberHandler);
-btndivider.onclick = composer(NumberHandler);
+btn1.onclick = Composer(NumberHandler);
+btn2.onclick = Composer(NumberHandler);
+btn3.onclick = Composer(NumberHandler);
+btn4.onclick = Composer(NumberHandler);
+btn5.onclick = Composer(NumberHandler);
+btn6.onclick = Composer(NumberHandler);
+btn7.onclick = Composer(NumberHandler);
+btn8.onclick = Composer(NumberHandler);
+btn9.onclick = Composer(NumberHandler);
+btn0.onclick = Composer(NumberHandler);
+btnsum.onclick = Composer(NumberHandler);
+btnmin.onclick = Composer(NumberHandler);
+btnequl.onmousedown = Composer(NumberHandler);
+btnmulti.onclick = Composer(NumberHandler);
+btndivider.onclick = Composer(NumberHandler);
 
